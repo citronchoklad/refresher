@@ -9,7 +9,14 @@ function refreshActive() {
 }
 
 function updateAmount() {
-  chrome.runtime.sendMessage({nordeaAmount: 0});
+  var all = document.querySelectorAll('#currentaccountsoverviewtable tr td:last-child font');
+  var amount = all.length;
+  all.forEach(function(i) {
+    if (i.innerHTML.trim() == "0,00") {
+      amount = 0;
+    }
+  });
+  chrome.runtime.sendMessage({nordeaAmount: amount});
 }
 
 function refreshPage() {

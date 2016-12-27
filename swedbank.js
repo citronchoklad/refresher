@@ -9,7 +9,14 @@ function refreshActive() {
 }
  
 function updateAmount() {
-  chrome.runtime.sendMessage({swedbankAmount: 0});
+  var all = document.querySelectorAll('.sektion-innehall2 tr td:last-child span');
+  var amount = all.length;
+  all.forEach(function(i) {
+    if (i.innerHTML.trim() == "0,00") {
+      amount = 0;
+    }
+  });
+  chrome.runtime.sendMessage({swedbankAmount: amount});
 }
 
 function refreshPage() {

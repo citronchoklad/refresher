@@ -2,7 +2,8 @@
   "manifest_version": 2,
 
   "name": "Refresher",
-  "description": "Refreshes pages to keep login session alive (for example banks)",
+  "description": "Refreshes pages to keep login session alive (for nordea and swedbank)",
+  "author": "Jimmie Elvenmark",
   "version": "1.0",
   "browser_action": {
     "default_icon": "coins_inactive.png"
@@ -14,13 +15,13 @@
   "content_scripts": [
     {
       "matches": [
-        "https://www.nordea.se/*"
+        "https://internetbanken.privat.nordea.se/nsp/core*menuid=236*"
       ],
       "js": ["nordea.js"]
     },
     {
       "matches": [
-        "https://www.swedbank.se/*"
+        "https://internetbank.swedbank.se/*_flow_id_=VISA_EKONOMISK_OVERSIKT_PRE_CLIENT*"
       ],
       "js": ["swedbank.js"]
     }
@@ -28,6 +29,6 @@
   "permissions": [
     "tabs",
     "https://www.nordea.se/",
-    "https://www.swedbank.se/"
+    "https://internetbank.swedbank.se/"
   ]
 }

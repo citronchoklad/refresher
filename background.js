@@ -7,19 +7,19 @@ window.setInterval(updateActive, 30*1000);
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    if (request.swedbankActive) {
+    if (request.swedbankActive !== undefined) {
       swedbankActive = new Date();
       updateActive();
     }
-    if (request.nordeaActive) {
+    if (request.nordeaActive !== undefined) {
       nordeaActive = new Date();
       updateActive();
     }
-    if (request.swedbankAmount) {
+    if (request.swedbankAmount !== undefined) {
       swedbankAmount = request.swedbankAmount;
       updateAmount();
     }
-    if (request.nordeaAmount) {
+    if (request.nordeaAmount !== undefined) {
       nordeaAmount = request.nordeaAmount;
       updateAmount();
     }

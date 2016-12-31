@@ -9,16 +9,21 @@ function refreshActive() {
 }
  
 function updateAmount() {
-  var all = document.querySelectorAll('.sektion-innehall2 tr td:last-child span');
-  var amount = all.length;
-  all.forEach(function(i) {
-    if (i.innerHTML.trim() == "0,00") {
-      amount = 0;
-    }
-  });
+  var element = document.querySelector('.sektion-innehall2 tr td:last-child span');
+  var amount = parseInt(element.innerHTML, 10);
   chrome.runtime.sendMessage({swedbankAmount: amount});
 }
 
 function refreshPage() {
-  location.reload(true);
+  var account_selector = document.querySelector('#form_byt_konto #index');
+  if (account_selector != undefined) {
+    if (account_selector.value == "") {
+      account_selector.value = 0;
+    }
+    var button = document.querySelector('#form_byt_konto input[name="byt_konto"]');
+    button.dispatchEvent(new Event('click'));
+  } else {
+    location.reload(true);
+  }
+
 }

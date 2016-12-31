@@ -22,7 +22,9 @@
     },
     {
       "matches": [
-        "https://internetbank.swedbank.se/*_flow_id_=VISA_EKONOMISK_OVERSIKT_PRE_CLIENT*"
+        "https://internetbank.swedbank.se/*_flow_id_=VISA_EKONOMISK_OVERSIKT_PRE_CLIENT*",
+        "https://internetbank.swedbank.se/*_flow_id_=VISA_KONTOINFORMATION_PRE_CLIENT*",
+        "https://internetbank.swedbank.se/*_flow_id_=BYT_KONTO_PRE_CLIENT*"
       ],
       "js": ["swedbank.js"]
     }
